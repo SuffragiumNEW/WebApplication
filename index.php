@@ -11,22 +11,22 @@
 </form>
 
 <?php
-require('connection.php');
 if(isset($_POST))
-    {
-    $conn = new mysqli($servername, $username, $password, $dbname);
+  {
+  require('connection.php');
+  $conn = new mysqli($servername, $username, $password, $dbname);
 
-    $email= $_POST['email'];
-    $psw= $_POST['psw'];
-    $sql="SELECT email, password FROM votante WHERE email=$email AND password=$password";
-    
-    $checkTable=mysqli_query($dbname, $checkQuery);
-    $row=mysqli_fetch_array($checkTable, MYSQLI_ASSOC);
-    if($row!==NULL)
-    	echo "<script type='text/javascript'>alert('Benvenuto');</script>";
-       else
-       	echo "<script type='text/javascript>alert('Nome utente e/o password errati');</script>";
-     }
+  $email= $_POST['email'];
+  $psw= $_POST['psw'];
+  $sql="SELECT email, password FROM votante WHERE email=$email AND password=$password";
+  
+  $checkTable=mysqli_query($dbname, $checkQuery);
+  $row=mysqli_fetch_array($checkTable, MYSQLI_ASSOC);
+  if($row!==NULL)
+    echo "<script type='text/javascript'>alert('Benvenuto');</script>";
+   else
+    echo "<script type='text/javascript>alert('Nome utente e/o password errati');</script>";
+  }
 ?>
 </body>
 </html>
