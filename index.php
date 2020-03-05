@@ -11,12 +11,9 @@
 </form>
 
 <?php
+require('connection.php');
 if(isset($_POST))
     {
-    $servername = "localhost";
-    $username = "suffragium";
-    $password = "Px3PVKmsyt9V";
-    $dbname = "my_suffragium";
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     $email= $_POST['email'];
