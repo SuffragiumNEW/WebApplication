@@ -17,32 +17,29 @@
 </form>
 <?php
 if(isset($_POST["enter"]))
-{
-$servername = "localhost";
-$username = "suffragium";
-$password = "Px3PVKmsyt9V";
-$dbname = "my_suffragium";
-$conn = new mysqli($servername, $username, $password, $dbname);
-$us = $_POST["username"];
-$pw = $_POST["password"];
-$nome = $_POST["nome"];
-$cognome = $_POST["cognome"];
-$CF = $_POST["CF"];
-$mail = $_POST["email"];
-$address = $_POST["indirizzo"];
-$birth = $_POST["data_di_nascita"];
-$id = hash('sha512', $CF);
-$sql = "INSERT INTO votante (n_utente, password, nome, cognome, CF, email, indirizzo, data_di_nascita, id, abilitato) VALUES ('$us', '$pw','$nome','$cognome','$CF','$mail','$address','$birth','$id',false)";
-if ($conn->query($sql) === TRUE) 
-	{
+  {
+  require('connection.php');
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  $us = $_POST["username"];
+  $pw = md5($_POST["password"]);
+  $nome = $_POST["nome"];
+  $cognome = $_POST["cognome"];
+  $CF = $_POST["CF"];
+  $mail = $_POST["email"];
+  $address = $_POST["indirizzo"];
+  $birth = $_POST["data_di_nascita"];
+  $id = hash('sha512', $CF);
+  $sql = "INSERT INTO votante (n_utente, password, nome, cognome, CF, email, indirizzo, data_di_nascita, id, abilitato) VALUES ('$us', '$pw','$nome','$cognome','$CF','$mail','$address','$birth','$id',false)";
+  if ($conn->query($sql)) 
+    {
     echo "New record created successfully";
-	} 
-else 
-	{
+    } 
+  else 
+    {
     echo "Error: " . $sql . "<br>" . $conn->error;
     }
-$conn->close();
-}
+  $conn->close();
+  }
 ?>
 </body>
 </html>
