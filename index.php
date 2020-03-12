@@ -10,7 +10,7 @@
     <input type="submit" value="LOGIN">
 </form>
     <a href=RegisterSuff.php>Registrati</a>
-
+<h1>CIAONE</h1>
 <?php
 //echo count($_POST);
 if(isset($_POST) && count($_POST)>0)
