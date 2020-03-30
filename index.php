@@ -5,14 +5,15 @@
 <body>
 <h1>LOGIN</h1>
 <form action=index.php method=POST>
-    user name: <input type="text" name="utente" id=""> <br>
-    password: <input type="password" name="psw" id=""> <br>
+    nome: <input type="text" name="utente" id="utente"> <br>
+    password: <input type="password" name="psw" id="psw"> <br>
     <input type="submit" value="LOGIN">
 </form>
     <a href=RegisterSuff.php>Registrati</a>
 <h1>CIAONE Patatone</h1>
 <?php
 //echo count($_POST);
+session_start();
 if(isset($_POST) && count($_POST)>0)
   {
   require('connection.php');
@@ -21,7 +22,7 @@ if(isset($_POST) && count($_POST)>0)
 
   $utente= $_POST["utente"];
   $psw= $_POST["psw"];
-  $checkQuery="SELECT nome, cognome FROM votante WHERE n_utente='$utente' AND password='".md5($psw)."'";
+  $checkQuery="SELECT * FROM votante WHERE nome='$utente' AND password='".md5($psw)."'";
 //  echo "<p>".$checkQuery;
   $checkTable=mysqli_query($conn, $checkQuery) or die ('<p>Error:'.$checkQuery);
 //  echo "numero righe=".mysqli_num_rows ($checkTable);
@@ -29,6 +30,10 @@ if(isset($_POST) && count($_POST)>0)
     {
     $row=mysqli_fetch_array($checkTable, MYSQLI_ASSOC);
     $ans='Benvenuto '.$row['nome']." ".$row['cognome'];
+    $_SESSION['username'] = $utente;
+    $_SESSION['password'] = md5($psw);
+
+    header('Location: http://localhost:8080/WebApplication/homepage.php');
     }
    else
     $ans='Nome utente e/o password errati';
