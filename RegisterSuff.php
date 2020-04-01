@@ -27,7 +27,7 @@ if(isset($_POST["enter"]))
   $address = $_POST["indirizzo"];
   $birth = $_POST["data_di_nascita"];
   $id = hash('sha512', $CF);
-  $sql = "INSERT INTO votante (password, nome, cognome, CF, email, indirizzo, data_di_nascita, abilitato) VALUES ('$pw','$nome','$cognome','$CF','$mail','$address','$birth',false)";
+  $sql = "INSERT INTO votante (password, nome, cognome, CF, email, indirizzo, data_di_nascita, abilitato, admin) VALUES ('$pw','$nome','$cognome','$CF','$mail','$address','$birth',false,false)";
   if ($conn->query($sql)) 
     {
     echo "New record created successfully";

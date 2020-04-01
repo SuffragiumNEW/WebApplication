@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 26, 2020 alle 10:52
--- Versione del server: 10.4.11-MariaDB
+-- Creato il: Apr 01, 2020 alle 18:06
+-- Versione del server: 5.7.17
 -- Versione PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,22 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `admin`
---
-
-CREATE TABLE `admin` (
-  `ruolo` int(15) NOT NULL,
-  `CF` varchar(16) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `approva`
 --
 
 CREATE TABLE `approva` (
-  `admin` varchar(100) NOT NULL,
+  `votante` varchar(100) NOT NULL,
   `quesito` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -124,33 +113,26 @@ CREATE TABLE `votante` (
   `indirizzo` varchar(30) NOT NULL,
   `data_di_nascita` date NOT NULL,
   `id` int(11) NOT NULL,
-  `abilitato` tinyint(1) DEFAULT NULL
+  `abilitato` tinyint(1) DEFAULT NULL,
+  `admin` tinyint(1) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `votante`
 --
 
-INSERT INTO `votante` (`password`, `nome`, `cognome`, `CF`, `email`, `indirizzo`, `data_di_nascita`, `id`, `abilitato`) VALUES
-('Password123', 'Simone', 'Menestrina', 'MNSSMN99P18D969O', 'menestrina.simone@gmail.com', 'Via Ginestrato 5P/29', '1999-09-18', 1, 0),
-('akjcdjavjbv', 'pippo', 'baudo', 'uibviubsvufobsfo', 'lillo@gmail.com', 'jksdbvjdbjb', '2000-02-01', 36, 0),
-('5f53278df1e8d849', 'asdasda', 'asdasdas', 'asdfasfgfafgadfg', 'francesca2112@gmail.com', 'ADadADFgf', '1222-02-22', 37, 0);
+INSERT INTO `votante` (`password`, `nome`, `cognome`, `CF`, `email`, `indirizzo`, `data_di_nascita`, `id`, `abilitato`, `admin`) VALUES
+('Password123', 'Simone', 'Menestrina', 'MNSSMN99P18D969O', 'menestrina.simone@gmail.com', 'Via Ginestrato 5P/29', '1999-09-18', 1, 0, 0);
 
 --
 -- Indici per le tabelle scaricate
 --
 
 --
--- Indici per le tabelle `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`CF`);
-
---
 -- Indici per le tabelle `approva`
 --
 ALTER TABLE `approva`
-  ADD PRIMARY KEY (`admin`,`quesito`);
+  ADD PRIMARY KEY (`votante`,`quesito`);
 
 --
 -- Indici per le tabelle `ha`
