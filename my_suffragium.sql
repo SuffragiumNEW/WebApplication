@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 01, 2020 alle 18:06
--- Versione del server: 5.7.17
+-- Creato il: Apr 01, 2020 alle 19:07
+-- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -105,7 +105,7 @@ CREATE TABLE `vota` (
 --
 
 CREATE TABLE `votante` (
-  `password` varchar(16) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `cognome` varchar(100) NOT NULL,
   `CF` varchar(16) NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE `votante` (
   `data_di_nascita` date NOT NULL,
   `id` int(11) NOT NULL,
   `abilitato` tinyint(1) DEFAULT NULL,
-  `admin` tinyint(1) DEFAULT '0'
+  `admin` tinyint(1) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -122,7 +122,9 @@ CREATE TABLE `votante` (
 --
 
 INSERT INTO `votante` (`password`, `nome`, `cognome`, `CF`, `email`, `indirizzo`, `data_di_nascita`, `id`, `abilitato`, `admin`) VALUES
-('Password123', 'Simone', 'Menestrina', 'MNSSMN99P18D969O', 'menestrina.simone@gmail.com', 'Via Ginestrato 5P/29', '1999-09-18', 1, 0, 0);
+('Password123', 'Simone', 'Menestrina', 'MNSSMN99P18D969O', 'menestrina.simone@gmail.com', 'Via Ginestrato 5P/29', '1999-09-18', 1, 0, 0),
+('25d55ad283aa400a', 'pippo', 'baudo', '123s4dertvfgybhn', 'test@gmail.com', 'uwbhibwribu', '2020-04-07', 38, 0, 0),
+('25d55ad283aa400af464c76d713c07ad', 'simo', 'mimmo', 'rwvy3r8gbf93u8b9', 'test@test.com', 'via sti cazzi', '2020-04-15', 39, 0, 0);
 
 --
 -- Indici per le tabelle scaricate
@@ -184,7 +186,7 @@ ALTER TABLE `votante`
 -- AUTO_INCREMENT per la tabella `votante`
 --
 ALTER TABLE `votante`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
