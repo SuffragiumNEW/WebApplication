@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<font face=”Arial”>
 <head>
 <title>Register</title>
 <style> 
@@ -38,7 +37,6 @@ if(isset($_POST["enter"]))
   $mail = $_POST["email"];
   $address = $_POST["indirizzo"];
   $birth = $_POST["data_di_nascita"];
-  $id = hash('sha512', $CF);
   $sql = "INSERT INTO votante (n_utente, password, nome, cognome, CF, email, indirizzo, data_di_nascita, id, abilitato) VALUES ('$us', '$pw','$nome','$cognome','$CF','$mail','$address','$birth','$id',false)";
   if ($conn->query($sql)) 
     {
@@ -52,5 +50,4 @@ if(isset($_POST["enter"]))
   }
 ?>
 </body>
-</font> 
 </html>
