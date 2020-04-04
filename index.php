@@ -9,8 +9,8 @@
     password: <input type="password" name="psw" id="psw"> <br>
     <input type="submit" value="LOGIN">
 </form>
-    <a href=RegisterSuff.php>Registrati</a>
-<h1>CIAONE Patatone</h1>
+    <a href=pagine/RegisterSuff.php>Registrati</a>
+    <a href=pagine/PasswordRecovery.php>Hai dimenticato la password?</a>
 <?php
 //echo count($_POST);
 session_start();
