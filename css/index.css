@@ -1,0 +1,15 @@
+body {
+    background-image: url(/WebApplication/media/dark_wood.png);
+    display: flex;
+    justify-content: center;
+}
+div.jumbotron {
+    opacity: 0.5;
+    background-color: black;
+    z-index: -1;
+    height: 65%;
+    position: fixed;
+}
+div.container.w-25 {
+    z-index: 1;
+}
