@@ -7,15 +7,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+<a href=pagine/RegisterSuff.php>Registrati</a>
 <div class="jumbotron text-center">
 <h1>LOGIN</h1>
 <form action=index.php method=POST>
-    nome: <input type="text" name="utente" id="utente"> <br>
-    password: <input type="password" name="psw" id="psw"> <br>
+    <b>NOME: </b><input type="text" name="utente" id="utente"> <br>
+    <b>PASSWORD: </b><input type="password" name="psw" id="psw"> <br>
     <a href=pagine/PasswordRecovery.php>Hai dimenticato la password?</a>
-    <input type="submit" value="LOGIN">
+    <br><br><input type="submit" value="LOGIN">
 </form>
-    <a href=pagine/RegisterSuff.php>Registrati</a>
 </div>
 <?php
 //echo count($_POST);
