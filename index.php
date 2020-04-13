@@ -5,17 +5,31 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href="/WebApplication/css/index.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<div class="jumbotron text-center">
-<h1>LOGIN</h1>
+<body class="p-5">
+<div class="jumbotron container w-50"><div class="text-center">aaaa</div></div>
+<div class="container w-50 text-light p-5">
+<div class="text-center">
+<h1>LOGIN</h1><br>
 <form action=index.php method=POST>
-    nome: <input type="text" name="utente" id="utente"> <br>
-    password: <input type="password" name="psw" id="psw"> <br>
-    <a href=pagine/PasswordRecovery.php>Hai dimenticato la password?</a>
-    <input type="submit" value="LOGIN">
+<div class="input-group mb-5 rounded text-light">
+    <div class="input-group-prepend w-25">
+      <span class="input-group-text w-100"><b class="float-left p-2">NOME UTENTE </b></span>
+    </div>
+    <input type="text" name="utente" id="utente" class="form-control"><br>
+  </div>
+  <div class="input-group mb-5 rounded text-light">
+    <div class="input-group-prepend w-25">
+      <span class="input-group-text w-100"><b class="float-left p-2">PASSWORD </b></span>
+    </div>
+    <input type="password" name="psw" id="psw" class="form-control"><br>
+  </div>
+    <input type="submit" value="LOGIN" class="btn btn-outline-success btn-lg w-100"><br><br><br>
+    <a class="float-left btn btn-outline-primary btn-sm" href=pagine/PasswordRecovery.php>Hai dimenticato la password?</a>
+    <a class="float-right btn btn-outline-primary btn-sm"href=pagine/RegisterSuff.php>Registrati</a>
 </form>
-    <a href=pagine/RegisterSuff.php>Registrati</a>
+</div>
 </div>
 <?php
 //echo count($_POST);
