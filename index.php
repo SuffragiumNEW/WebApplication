@@ -53,7 +53,7 @@ if(isset($_POST) && count($_POST)>0)
     $_SESSION['username'] = $utente;
     $_SESSION['password'] = md5($psw);
 
-    header('Location: /WebApplication/pagine/MainPage.php');
+    header('Location: pagine/MainPage.php');
     }
    else
     $ans='Nome utente e/o password errati';

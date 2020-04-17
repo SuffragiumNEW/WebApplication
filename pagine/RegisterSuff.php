@@ -27,9 +27,8 @@ body {
 <?php
 if(isset($_POST["enter"]))
   {
-  require('connection.php');
+  require('../connection.php');
   $conn = mysqli_connect($servername, $username, $password, $dbname);
-  $us = $_POST["username"];
   $pw = md5($_POST["password"]);
   $nome = $_POST["nome"];
   $cognome = $_POST["cognome"];
@@ -37,7 +36,7 @@ if(isset($_POST["enter"]))
   $mail = $_POST["email"];
   $address = $_POST["indirizzo"];
   $birth = $_POST["data_di_nascita"];
-  $sql = "INSERT INTO votante (n_utente, password, nome, cognome, CF, email, indirizzo, data_di_nascita, id, abilitato) VALUES ('$us', '$pw','$nome','$cognome','$CF','$mail','$address','$birth','$id',false)";
+  $sql = "INSERT INTO votante (password, nome, cognome, CF, email, indirizzo, data_di_nascita, id, abilitato) VALUES ('$pw','$nome','$cognome','$CF','$mail','$address','$birth','$id',false)";
   if ($conn->query($sql)) 
     {
     echo "New record created successfully";
