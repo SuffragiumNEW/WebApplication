@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 01, 2020 alle 19:07
+-- Creato il: Apr 30, 2020 alle 09:39
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.3
 
@@ -74,7 +74,8 @@ CREATE TABLE `propone` (
 
 CREATE TABLE `quesito` (
   `testo_Q` int(100) NOT NULL,
-  `n_quesito` varchar(10) NOT NULL
+  `n_quesito` varchar(10) NOT NULL,
+  `data` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -114,7 +115,7 @@ CREATE TABLE `votante` (
   `data_di_nascita` date NOT NULL,
   `id` int(11) NOT NULL,
   `abilitato` tinyint(1) DEFAULT NULL,
-  `admin` tinyint(1) DEFAULT 0
+  `admin` tinyint(1) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
