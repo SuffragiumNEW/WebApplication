@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 30, 2020 alle 09:39
+-- Creato il: Apr 30, 2020 alle 10:24
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.3
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `approva` (
   `votante` varchar(100) NOT NULL,
-  `quesito` varchar(100) NOT NULL
+  `quesito_proposto` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -63,7 +63,7 @@ CREATE TABLE `partecipa` (
 
 CREATE TABLE `propone` (
   `votante` varchar(100) NOT NULL,
-  `quesito` varchar(100) NOT NULL
+  `quesito_proposto` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -73,10 +73,24 @@ CREATE TABLE `propone` (
 --
 
 CREATE TABLE `quesito` (
-  `testo_Q` int(100) NOT NULL,
-  `n_quesito` varchar(10) NOT NULL,
+  `testo_Q` varchar(100) NOT NULL,
+  `n_quesito` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL,
   `data` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `quesito_proposto`
+--
+
+CREATE TABLE `quesito_proposto` (
+  `n_quesito` varchar(100) NOT NULL,
+  `testo_Q` varchar(100) NOT NULL,
+  `data` int(11) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -135,7 +149,7 @@ INSERT INTO `votante` (`password`, `nome`, `cognome`, `CF`, `email`, `indirizzo`
 -- Indici per le tabelle `approva`
 --
 ALTER TABLE `approva`
-  ADD PRIMARY KEY (`votante`,`quesito`);
+  ADD PRIMARY KEY (`votante`,`quesito_proposto`);
 
 --
 -- Indici per le tabelle `ha`
@@ -153,13 +167,19 @@ ALTER TABLE `partecipa`
 -- Indici per le tabelle `propone`
 --
 ALTER TABLE `propone`
-  ADD PRIMARY KEY (`votante`,`quesito`);
+  ADD PRIMARY KEY (`votante`,`quesito_proposto`);
 
 --
 -- Indici per le tabelle `quesito`
 --
 ALTER TABLE `quesito`
-  ADD PRIMARY KEY (`n_quesito`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `quesito_proposto`
+--
+ALTER TABLE `quesito_proposto`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `risposta`
@@ -182,6 +202,18 @@ ALTER TABLE `votante`
 --
 -- AUTO_INCREMENT per le tabelle scaricate
 --
+
+--
+-- AUTO_INCREMENT per la tabella `quesito`
+--
+ALTER TABLE `quesito`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `quesito_proposto`
+--
+ALTER TABLE `quesito_proposto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `votante`
