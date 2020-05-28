@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 30, 2020 alle 10:24
+-- Creato il: Mag 28, 2020 alle 10:43
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.3
 
@@ -44,6 +44,20 @@ CREATE TABLE `ha` (
   `quesito` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `ha`
+--
+
+INSERT INTO `ha` (`risposta`, `quesito`) VALUES
+('Blu', '9'),
+('Boccioni', '10'),
+('Giallo', '9'),
+('Michelangelo', '10'),
+('Monet', '10'),
+('Nero', '9'),
+('Rosso', '9'),
+('Troilo', '10');
+
 -- --------------------------------------------------------
 
 --
@@ -79,6 +93,14 @@ CREATE TABLE `quesito` (
   `data` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `quesito`
+--
+
+INSERT INTO `quesito` (`testo_Q`, `n_quesito`, `id`, `data`) VALUES
+('Quale colore starebbe bene sulla nostra parete?', 'cargo', 9, '2020-05-28'),
+('Quale artista è il migliore?', 'Rimta', 10, '2020-05-28');
+
 -- --------------------------------------------------------
 
 --
@@ -91,16 +113,6 @@ CREATE TABLE `quesito_proposto` (
   `data` int(11) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `risposta`
---
-
-CREATE TABLE `risposta` (
-  `testo_R` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -182,12 +194,6 @@ ALTER TABLE `quesito_proposto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `risposta`
---
-ALTER TABLE `risposta`
-  ADD PRIMARY KEY (`testo_R`);
-
---
 -- Indici per le tabelle `vota`
 --
 ALTER TABLE `vota`
@@ -207,7 +213,7 @@ ALTER TABLE `votante`
 -- AUTO_INCREMENT per la tabella `quesito`
 --
 ALTER TABLE `quesito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT per la tabella `quesito_proposto`
